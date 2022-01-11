@@ -1,0 +1,99 @@
+.countdown{
+    margin-top: 20px;
+    margin-left: 55px;
+    margin-right: auto;
+
+}
+.countdown h4{
+    font-weight: 600;
+
+}
+.countdown span{
+    color: var(--fontColor-accent);
+}
+.bookingInfo-title{
+    margin: 20px 25px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;  
+}
+#bookingInfoTitle{
+    font-size: var(--mobile-fontSize-body);
+}
+.cabinPic{
+    height: 135px;
+    border-radius: 15px;
+}
+.tablesContainer{
+    margin: 15px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.tablesContainer table{
+    margin: 5px 0;
+
+    width: 100%;
+
+    border-bottom: 1px dashed var(--lineDivider-color);
+}
+.tableRows{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.tableHeaders{
+    padding-left: 35px;
+
+    line-height: 1.8em;
+}
+.tableIcon{
+    padding-right: 8px;
+
+    color: var(--fontColor-accent);
+    font-size: smaller;
+}
+.tableData{
+    margin-right: 10px;
+}
+.table-andalue .tableRows{
+    margin: 7px 0;
+}
+#usersIcon{
+    padding-right: 3px;
+}
+.infoIcon{
+    padding-right: 16px;
+}
+@media (min-width:721px) {
+    .tablesContainer{
+        align-items: center;
+    }
+    .tablesContainer table{
+        width: 70%;
+    }
+}
+@media (min-width:1024px) {
+    .countdown{
+        margin-left: auto;
+    }
+    .tablesContainer{
+        align-items: center;
+    }
+    .tablesContainer table{
+        width: 100%;
+    }
+    .tableIcon{
+        padding-right: 15px;
+    }
+    #usersIcon{
+        padding-right: 9px;
+    }
+    .infoIcon{
+        padding-right: 22px;
+    }
+}

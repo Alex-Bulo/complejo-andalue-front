@@ -1,0 +1,31 @@
+.CommentSectionContainer{
+    margin-top: 55px;
+    width: 100%;
+    height: 470px;
+
+    background-image: url('http://localhost:3001/images/sanrafael.JPG');
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    overflow: hidden;
+}
+.CommentSectionContainer h3{
+    align-self: center;
+    color: var(--fontColor-accent);
+}
+@media (min-width: 721px){
+    .CommentSectionContainer{
+        height: 420px;
+    }
+}
+
+@media (min-width: 1024px){
+    .CommentSectionContainer{
+        height: 400px;
+    }
+}

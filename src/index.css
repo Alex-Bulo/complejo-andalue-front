@@ -1,0 +1,171 @@
+/* falta mejorar tamaños en nuevo diseño */
+:root{
+  --desktop-fontSize-detail: 16px;
+  --desktop-fontWeight-detail: 400;
+  --desktop-fontSize-body: 24px;
+  --desktop-fontWeight-body: 700;
+  --desktop-fontSize-subtitle: 30px;
+  --desktop-fontWeight-subtitle: 700;
+  --desktop-fontSize-title: 34px;
+  --desktop-fontWeight-title: 700;
+  
+  --mobile-fontSize-detail: 16px;
+  --mobile-fontWeight-detail: 400;
+  --mobile-fontSize-body: 24px;
+  --mobile-fontWeight-body: 700;
+  --mobile-fontSize-subtitle: 24px;
+  --mobile-fontWeight-subtitle: 700;
+  --mobile-fontSize-title: 30px;
+  --mobile-fontWeight-title: 700;
+}
+
+.dark{
+  --bkgColor-main: #002F46;
+  --bkgColor-form: rgba(0, 115, 170, 0.25);
+  --bkgColor-header: rgba(0, 115, 170, 1);
+  --bkgColor-footer: rgba(0, 68, 68, 1);
+
+  --fontColor-primary: #ffffff;
+  --fontColor-secondary: #000000;
+  --fontColor-accent: rgba(0, 153, 153, 1);
+
+  --lineDivider-color: rgba(0, 189, 189, 1);
+  --lineDivider-header-color: rgba(0, 189, 189, 1);
+  
+  --CTAmain-active-bkgColor: rgba(0, 189, 189, 1);
+  --CTAmain-active-fontColor: rgba(255, 255, 255, 1);
+  
+  --CTAmain-inactive-bkgColor: rgba(0, 189, 189, 0.5);
+  --CTAmain-inactive-fontColor: rgba(255, 255, 255, 0.75);
+  
+  --CTAmain-hover-bkgColor: rgb(44, 218, 218);
+
+  --CTAmain-pressed-bkgColor: rgba(0, 153, 153, 1);
+  --CTAmain-pressed-fontColor: rgba(255, 255, 255, 1);
+  
+  --CTAsecondary-active-bkgColor: rgba(255, 255, 255, 0);
+  --CTAsecondary-active-fontColor: rgba(0, 0, 0, 1);
+  --CTAsecondary-active-border: 2px solid #00BDBD;
+  
+  --CTAsecondary-inactive-bkgColor: rgba(255, 255, 255, 0);
+  --CTAsecondary-inactive-fontColor: rgba(0, 0, 0, 0.35);
+  --CTAsecondary-inactive-border: 2px solid rgba(0, 189, 189, 0.5);
+    
+  --CTAsecondary-hover-bkgColor: rgba(0, 189, 189, 0.6);
+  --CTAsecondary-hover-fontColor: rgba(0, 0, 0, 1);
+  --CTAsecondary-hover-border: none;
+
+  --CTAsecondary-pressed-bkgColor: rgba(0, 189, 189, 1);
+  --CTAsecondary-pressed-fontColor: rgba(0, 0, 0, 1);
+  --CTAsecondary-pressed-border: none;
+
+  --dropdown-active-bkgColor: rgba(0, 149, 220, 1);
+  --dropdown-active-fontColor: rgba(255, 255, 255, 1);
+  
+  --dropdown-inactive-bkgColor: rgba(0, 149, 220, 0.35);
+  --dropdown-inactive-fontColor: rgba(255, 255, 255, 0.75);
+  
+  --dropdown-hover-bkgColor: rgba(16, 178, 255, 0.9);
+  --dropdown-hover-fontColor: rgba(255, 255, 255, 1);
+  
+  --dropdown-pressed-bkgColor: rgba(0, 149, 220, 1);
+  --dropdown-pressed-fontColor: rgba(255, 255, 255, 1);
+  
+  --dropdownItem-fontColor: rgba(0, 0, 0, 1);
+  /* --dropdownItem-bkgColor: #364f5c83; */
+  --dropdownItem-bkgColor: rgb(222, 221, 224);
+  --dropdownItem-hover-bkgColor: rgba(0, 189, 189, 0.5);
+
+}
+
+/* listo light*/
+.light{
+  --bkgColor-main: #e5e5e5;
+  --bkgColor-form: rgba(0, 115, 170, 0.25);
+  --bkgColor-header: rgba(0, 115, 170, 1);
+  --bkgColor-footer: rgba(0, 115, 115, 1);
+
+  --fontColor-primary: #000000;
+  --fontColor-secondary: #ffffff;
+  --fontColor-accent: rgba(0, 115, 115, 1);
+
+  --lineDivider-color: rgba(0, 115, 115, 1);
+  --lineDivider-header-color: rgb(0, 173, 173);
+  
+  --CTAmain-active-bkgColor: rgba(0, 189, 189, 1);
+  --CTAmain-active-fontColor: rgba(255, 255, 255, 1);
+  
+  --CTAmain-inactive-bkgColor: rgba(0, 189, 189, 0.5);
+  --CTAmain-inactive-fontColor: rgba(255, 255, 255, 0.75);
+  
+  --CTAmain-hover-bkgColor: rgb(44, 218, 218);
+
+  --CTAmain-pressed-bkgColor: rgba(0, 153, 153, 1);
+  --CTAmain-pressed-fontColor: rgba(255, 255, 255, 1);
+  
+  --CTAsecondary-active-bkgColor: rgba(255, 255, 255, 0);
+  --CTAsecondary-active-fontColor: rgba(0, 0, 0, 1);
+  --CTAsecondary-active-border: 2px solid #00BDBD;
+  
+  --CTAsecondary-inactive-bkgColor: rgba(255, 255, 255, 0);
+  --CTAsecondary-inactive-fontColor: rgba(0, 0, 0, 0.35);
+  --CTAsecondary-inactive-border: 2px solid rgba(0, 189, 189, 0.5);
+    
+  --CTAsecondary-hover-bkgColor: rgba(0, 189, 189, 0.6);
+  --CTAsecondary-hover-fontColor: rgba(0, 0, 0, 1);
+  --CTAsecondary-hover-border: none;
+
+  --CTAsecondary-pressed-bkgColor: rgba(0, 189, 189, 1);
+  --CTAsecondary-pressed-fontColor: rgba(0, 0, 0, 1);
+  --CTAsecondary-pressed-border: none;
+
+  --dropdown-active-bkgColor: rgba(0, 115, 170, 1);
+  --dropdown-active-fontColor: rgba(255, 255, 255, 1);
+  
+  --dropdown-inactive-bkgColor: rgba(0, 115, 170, 0.3);
+  --dropdown-inactive-fontColor: rgba(255, 255, 255, 0.75);
+  
+  --dropdown-hover-bkgColor: rgba(16, 178, 255, 1);
+  --dropdown-hover-fontColor: rgba(255, 255, 255, 1);
+  
+  --dropdown-pressed-bkgColor: rgba(0, 115, 170, 1);
+  --dropdown-pressed-fontColor: rgba(255, 255, 255, 1);
+  
+  --dropdownItem-fontColor: rgba(0, 0, 0, 1);
+  --dropdownItem-bkgColor: rgba(255, 255, 255, 1);
+  --dropdownItem-hover-bkgColor: rgba(0, 189, 189, 0.4);
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', sans-serif;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+html{
+  position: relative;
+  width: 100vw;
+
+}
+body{
+  background-color: #e5e5e5;
+}
+
+@media (min-width:721px) {
+  body {
+    
+    font-size: var(--mobile-fontSize-detail);
+    font-weight: var(--mobile-fontWeight-detail);
+  }
+  
+}
+
+@media (min-width:1024px) {
+  body {
+    font-size: var(--desktop-fontSize-detail);
+    font-weight: var(--desktop-fontWeight-detail);
+  }
+  
+}

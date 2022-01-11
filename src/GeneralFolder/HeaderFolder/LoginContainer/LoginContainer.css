@@ -1,0 +1,161 @@
+.LoginContainer{
+    /* display: none; */
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+}
+.login{
+    position: absolute;
+    left: 6%;
+    top: 10%;
+
+    width: 78%;
+    height: 50%;
+    min-height: 390px;
+    max-height: 345px;
+
+    overflow: hidden !important;
+
+    animation: loginIn .35s ease-in-out 1;
+}
+.login::-webkit-scrollbar{
+    width: 0 !important;
+}
+.login-title{
+    margin-bottom:5px ;
+}
+.loginDescription{
+    text-align: left;
+}
+.loginDescription span{
+    color: var(--fontColor-accent);
+    font-weight: bolder;
+}
+.loginForm{
+    margin-top: 30px;
+}
+.loginForm-label{
+    position: relative;
+}
+.label-title{
+    position: relative;
+
+    margin-top: 10px;
+    margin-bottom: 5px;
+
+    font-weight: 500;
+    font-size: var(--mobile-fontSize-detail);
+    color: var(--fontColor-primary);
+    
+    text-align: left;
+}
+.loginForm-input{
+    width: 100%;
+    padding: 8px;
+
+    
+    height: 35px;
+    line-height: 20px;
+
+    font-size: var(--mobile-fontSize-detail);
+
+    border: 1px solid var(--fontColor-accent); 
+    border-radius: 5px;
+}
+.loginForm-CTA{
+    /* cursor:not-allowed; */
+    margin-top: 35px;
+    margin-left: auto;
+    width: 75%;
+}
+#loginErrorMail,
+#loginErrorCode{
+    position: relative;
+}
+@keyframes loginIn {
+    0%{ 
+        left: 80%;
+        top: 40%;
+        width: 0;
+        height: 0;
+        min-height: 0;
+    }
+    100%{ 
+        left: 6%;
+        top: 10%;
+        width: 78%;
+        height: 50%;
+        min-height: 390px;
+    }
+}
+@media (min-width:721px) {
+    .login{
+        padding-right: 45px;
+        padding-left: 45px;
+        position: sticky;
+        
+        left: 6%;
+        top: 15%;
+    
+        max-width: 775px;
+        
+        animation: loginIn .35s ease-in-out 1;
+    }
+    .loginForm-input{
+        width: 80%;
+        margin-right: 20%;
+    }
+    .loginForm-CTA{
+        width: 55%;
+    }
+    
+    @keyframes loginIn {
+        0%{ 
+            left: 80%;
+            width: 0;
+            top: 0;
+            height: 0;
+            min-height: 0;
+        }
+        100%{ 
+            width: 78%;
+            left: 6%;
+            top: 15%;
+            height: 50%;
+            
+            max-width: 775px;
+            min-height: 290px;
+        }
+    }
+}
+
+@media (min-width:1024px) {
+    .login{
+        left: calc(50vw - 450px);
+    }
+    .login-title{
+        margin-left: auto;
+    }
+    @keyframes loginIn {
+        0%{ 
+            left: 80%;
+            width: 0;
+            top: 0;
+            height: 0;
+            min-height: 0;
+        }
+        100%{ 
+            width: 78%;
+            left: calc(50vw - 450px);
+            top: 15%;
+            height: 50%;
+            
+            max-width: 775px;
+            min-height: 290px;
+        }
+    }
+
+}

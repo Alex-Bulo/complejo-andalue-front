@@ -1,0 +1,80 @@
+.AvailDetailContainer{
+    position: relative;
+
+    width: 100%;
+    max-width: 1300px;
+    margin: auto;
+    padding: 22px 25px 15px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.mainBtn{
+    margin-right: 5px;
+    margin-bottom: -18px;
+    margin-left: auto;
+
+    order: 0;
+    z-index: 9;
+
+    color: var(--fontColor-accent);
+
+    font-weight: 400;
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+
+}
+
+.secBtn{
+    width: max-content;
+
+    margin-top: 20px;
+    margin-right: 5px;
+    margin-bottom: -19px;
+    margin-left: auto;
+
+
+    order: 3;
+    z-index: 8;
+
+    color: var(--fontColor-accent);
+
+    font-weight: 400;
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+
+
+
+}
+
+.mainBtn p,
+.secBtn p{
+    padding-right: 5px;
+    display: inline-block;
+}
+.mainAvailContainer{
+    order: 2;
+
+    display: flex;
+    flex-direction: column;
+}
+.suggestedAvailContainer{
+    order: 4;
+    
+    display: flex;
+    flex-direction: column;
+
+    border-top: 1.5px solid var(--lineDivider-color);
+
+}
+
+
+/* .animateArrow .secBtn:after{
+    animation: arrowUp 2s ease-in-out .5s 1 normal forwards;
+} */
+
+@keyframes arrowUp {
+    0%{ transform: rotate(0deg);}
+    100%{ transform: rotate(180deg);}
+}

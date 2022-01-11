@@ -1,0 +1,35 @@
+.ContactContainer{
+    width: 100%;
+    padding: 35px;
+    padding-bottom: 15px;
+}
+
+.wppChoiceContainer{
+    
+    margin-top: 35px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.wppChoice{
+    padding: 0 10px;
+    width: 35%;
+    min-width: 150px;
+
+}
+@media (min-width: 721px){
+    
+    .wppChoice{
+        padding: 0 auto;
+        width: 50%;
+        max-width: 400px;
+    }
+}
+@media (min-width: 1024px){
+    .ContactContainer{
+        order:3;
+    }
+
+}

@@ -1,0 +1,23 @@
+.carrousel-imageContainer{
+    
+}
+
+.carrousel-image{
+    height: 45vh;
+    
+    object-fit: cover; /* Do not scale the image */
+    object-position: center; 
+}
+
+
+@media (min-width: 721px){
+    .carrousel-image{
+        height: 55vh;
+    }
+}
+
+@media (min-width: 1024px){
+    .carrousel-image{
+        height: 65vh;
+    }
+}

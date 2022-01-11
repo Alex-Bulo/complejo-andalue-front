@@ -1,0 +1,14 @@
+.Directions{
+    margin: 15px 0;
+
+    border-top: 1px dashed var(--lineDivider-color);
+}
+.Directions-title{
+    color: var(--fontColor-accent);
+    margin: 10px 0;
+}
+.video{
+    border-radius: 15px;
+
+    max-width: 450px;
+}

@@ -1,0 +1,172 @@
+.Description{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+.cabin-header{
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    /* justify-content: space-between; */
+}
+.cabin-name{
+    width: 50%;
+    
+    color: var(--fontColor-accent);
+    
+    font-size: var(--mobile-fontSize-body);
+    font-weight: 600;
+    text-align: left;
+}
+.cabin-capacityContainer{
+    position: relative;
+
+    width: 28%;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-end;
+
+    color: var(--dropdown-pressed-bkgColor);
+}
+.cabin-capacity{
+    font-size: var(--mobile-fontSize-detail);
+    font-weight: 400;
+}
+.iconCapacity-adults{
+    font-size:20px;
+
+}
+.iconCapacity-kids{
+    font-size: 18px;
+}
+.cabin-featIconContainer{
+    width: 100%;
+
+    margin: 10px 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly
+}
+.cabin-featIcon{
+    font-size: 18px;
+
+    color: var(--fontColor-accent);
+}
+
+.cabin-capacityInfoContainer{
+    width: fit-content;
+    top: 145%;
+}
+.cabin-capacityInfo{
+    width: 80px;
+    margin: 5px;
+    text-align: left;
+
+    font-size: var(--mobile-fontSize-detail);
+    font-weight: 400;
+}
+.cabin-capacityInfo span{
+
+    font-size: var(--mobile-fontSize-detail);
+    font-weight: 600;
+}
+
+.cabin-detailContainer{
+    margin: 25px 0;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+.cabin-features{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.featureContainer{
+    width: 100%;
+    margin: 10px 0;
+    
+    display: flex;
+    flex-direction: row;
+}
+.cabin-featureIcon{
+    width: 60px;
+    
+    padding: 10px;
+
+    align-self: center;
+
+    font-size: 40px;
+    color: var(--fontColor-accent);
+}
+.cabin-featureInfo{
+    padding-left: 15px;
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    font-size: var(--mobile-fontSize-detail);
+    font-weight: 400;
+}
+.cabin-featureTitle{
+    font-size: var(--mobile-fontSize-detail);
+    font-weight: 600;
+}
+.cabin-featureDescription{
+    text-align: left;
+}
+
+@media (min-width: 721px){
+    .productsContainer-title{
+        margin-left: 15px;
+    }
+    .cabin-header{
+        padding-left: 15px;
+        padding-right: 25px;
+
+        width: 100%;
+    }
+    .cabin-name{
+        font-size: var(--desktop-fontSize-body);
+        width: 19%;
+    }
+    .cabin-capacityContainer{
+        width: 20%;
+    }
+    .cabin-featIconContainer{
+        width: 45%;
+
+        margin-left: auto;
+    }
+    .featureContainer{
+        width: 45%;
+        margin-left: auto;
+    }
+}
+
+@media (min-width: 1024px){
+    .productsContainer-title{
+        margin-left: auto;
+    }
+    .cabin-name{
+        width: 33%;
+        padding-left: 15px;
+    }
+    .cabin-capacityContainer{
+        width: 18%;
+    }
+    .featureContainer{
+        margin-left: 15px;
+    }
+}

@@ -1,0 +1,31 @@
+.ProductContainer{
+    margin: 15px 0;
+    padding: 0 15px;
+
+    width: 100%;
+}
+
+.cabin-image{
+    height: 450px;
+    max-width: 880px;
+}
+.thumb{
+    height: 55px;
+}
+.thumb .cabin-image{
+    height:100%;
+}
+@media (min-width: 1024px){
+    .ProductContainer{
+        padding: 5px 40px;
+        display: flex;
+        flex-direction: row;
+    }
+    .ProductContainer .carousel-root{
+        width: 44%;
+    }
+    .cabin-imageContainer{
+        margin-right: 10px;
+    }
+    
+}

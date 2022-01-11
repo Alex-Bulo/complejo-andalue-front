@@ -1,0 +1,24 @@
+.TABLA{
+    width: 100%;
+    color: var(--fontColor-primary);
+}
+/*th{
+    padding: 15px;
+    border-left: 1px solid var(--lineDivider-color);
+ }
+tr{
+    padding: 7px;
+    border-bottom: 1px solid var(--lineDivider-color);
+}
+td{
+    border-bottom: 1px solid var(--lineDivider-color);
+} */
+.TITULOS{
+    position:sticky;
+    top: 0px;
+    background-color: var(--lineDivider-color);
+    opacity: .5;
+}
+.IMAGEN{
+    width: 150px;
+}

@@ -1,0 +1,78 @@
+.ContactForm{
+    margin: auto;
+    width: 90%;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.contactForm-title{
+    width: 100%;
+    font-size: var(--mobile-fontSize-body);
+    font-weight: var(--mobile-fontWeight-body);
+}
+.contactForm-label{
+    position: relative;
+
+    margin-top: 10px;
+
+    font-weight: 500;
+    font-size: var(--mobile-fontSize-detail);
+    color: var(--fontColor-primary);
+    
+    text-align: left;
+}
+.labelName,
+.labelEmail{
+    width: 100%;
+    margin: auto;
+}
+.labelInfo{
+    width: 100%;
+}
+#contactFormCTA{
+    width: 80%;
+    margin: auto;
+    margin-top: 15px;
+}
+
+.contactForm-input{
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    
+    height: 35px;
+    line-height: 20px;
+
+    font-size: var(--mobile-fontSize-detail);
+    /* color: rgba(155, 155, 155, 1); */
+
+    border: 1px solid var(--fontColor-accent); 
+    border-radius: 5px;
+}
+.contactInput-info{
+    height: 10em;
+}
+@media (min-width: 721px){
+    
+
+}
+
+@media (min-width: 1024px){
+
+    .labelName,
+    .labelEmail{
+        width: 45%;
+        margin: auto;
+    }
+    .labelInfo{
+        width: 95%;
+        margin-left: 2.5%;
+        /* margin-right: auto; */
+    }
+    #contactFormCTA{
+        width: 66%;
+        margin: auto;
+    }
+}

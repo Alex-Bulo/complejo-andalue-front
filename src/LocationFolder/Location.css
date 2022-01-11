@@ -1,0 +1,122 @@
+.Location{
+    display: flex;
+    flex-direction: column;
+}
+
+.mapContainer{
+    width: 100%;
+
+    margin-bottom: 10px;
+
+    position: relative;
+}
+.embededMap{
+    border: none;
+    width: 100%;
+    height: 70vh;
+}
+.mapInfoContainer{
+    position: relative;
+    
+    padding: 25px;
+    margin: 10px 0;
+    
+    background-color: rgba(245, 247, 252, .4);
+
+    display: flex;
+    flex-direction: column;
+
+    text-align: left;
+}
+.mapInfoContainer .closeBox{
+    position: absolute;
+    cursor: pointer;
+
+    right: 12px;
+    top: 10px;
+
+    font-size: 20px;
+}
+.infoBox{
+    position: absolute;
+    cursor: pointer;
+
+    right: 12px;
+    top: 10px;
+
+    font-size: 20px;
+}
+
+.mapInfo-address{
+    margin-top: 0;
+    
+}
+.mapInfo-address:before{
+    content: "\f3c5";
+
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    padding: 10px;
+}
+.mapInfo-infoItem{
+    list-style-type: none;
+    margin: 10px 13px;
+}
+.nearTo{
+    margin: 5px 15px; 
+}
+.mapInfo-infoItem:before{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    padding: 10px;
+}
+
+#valleGrande:before{
+    content: "\f6fc";
+}
+#city:before{
+    content: "\f1ad";
+}
+#plane:before{
+    content: "\f072";
+    padding-right: 5px;
+}
+
+.mapInfo-contactUs{
+    display: block;
+    margin-left: auto;
+    margin-top: auto;
+    width: 80%;
+}
+
+
+@media (min-width: 721px){
+    .mapInfoContainer{
+        padding-left: 100px;
+        background-color: rgba(245, 247, 252, 1);
+    }
+}
+@media (min-width: 1024px){
+    .mapContainer{
+        order: 4;
+        margin-top: 10px;
+    }
+    .mapInfoContainer{
+        position: absolute;
+        left: 3%;
+        top: 15%;
+    
+        width: 35%;
+        height: 50%;
+    
+        background-color: rgba(245, 247, 252, 1);
+
+        border-radius: 15px;
+        border: 1.5px solid #9B9B9B;
+        box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    }
+    .mapInfoContainer{
+        padding-left: 25px;
+    }
+ 
+}

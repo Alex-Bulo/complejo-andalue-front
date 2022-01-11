@@ -1,0 +1,75 @@
+.filters-background{
+    position: fixed;
+    top:0;
+    
+    z-index: 9;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(0,0,0,.1);
+}
+.ProfileFiltersContainer{
+    width: 60vw;
+    height: max-content;
+    position: fixed;
+    top: 50px;
+    
+    /* background-color: var(--bkgColor-main); */
+    
+    animation: filters .5s ease-in-out 1;
+}
+
+.filter-menu{
+    height: 100%;
+    
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: -50px;
+
+    position: relative;
+    cursor: pointer;
+     
+    font-size: 40px;
+
+    z-index: 9;
+
+}
+
+@keyframes filters {
+    0%{ 
+        opacity: 0;
+    }
+    100%{ 
+        opacity: 100%;
+    }
+}
+
+@media (min-width:1024px) {
+    #filter-menuNoCabin{
+        display: none !important;
+    }   
+    #filters-backgroundNoCabin{
+        display: flex !important;
+        position: relative;
+        height: 100%;
+        width: 25%;
+        
+        background-color: var(--bkgColor-main);
+    }
+    #filters-backgroundCabin .ProfileFiltersContainer{
+        /* height: 100%; */
+        width: 20%;        
+        top: 90px;       
+        /* background-color: var(--bkgColor-main); */
+    }
+
+    #filters-backgroundNoCabin .ProfileFiltersContainer{
+        width: 100%;
+        height: max-content;
+        position: relative; 
+        top: 90px;       
+        
+        animation: filters .5s ease-in-out 1;
+    }
+}

@@ -1,0 +1,81 @@
+.Profile{
+    margin: 10px 25px; 
+    min-height: 85vh;
+
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+
+}
+#Profile-title{
+    margin-top: 10px;
+    font-size: var(--mobile-fontSize-body);
+}
+#Profile-title span{
+    color: var(--fontColor-primary);
+}
+
+.descriptionContainer{
+    /* padding: 0 25px; */
+    margin-bottom: 25px;
+
+    text-align: left;
+
+    font-size: var(--mobile-fontSize-detail);
+}
+.description{
+    margin-top: 5px;
+}
+.description span,
+.bookingLink span,
+.extrasLink span{
+    font-weight: 600;
+    color: var(--fontColor-accent);
+}
+.bookingLink{
+    width: 95%;
+    
+    margin-top: 10px;
+    margin-bottom: 20px;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    line-height: 1.5em;
+    min-height: 45px;
+}
+.bookingLink p{
+    margin: 5px 20px;
+    width: max-content;
+}
+.bookingLink p:first-child{
+    text-align: left;
+}
+.extrasLink{
+    width: 90%;
+    margin-top: 20px;
+}
+
+
+@media (min-width: 721px){
+    .descriptionContainer{
+        margin-bottom: 50px;
+    }
+    .bookingLink p:first-child{
+        margin-left: 15%;
+    }
+    .bookingLink p:last-child{
+        margin-right: 15%;
+    }
+    
+    .bookingLink{
+        justify-content: space-between;
+    }
+
+}
+@media (min-width: 1024px){
+    .Profile{
+        margin:10px 75px
+}
+}

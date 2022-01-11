@@ -1,0 +1,108 @@
+.Survey{
+    width: 100%;
+    min-height: 80vh;
+
+    padding: 15px 20px;
+}
+.Survey-header{
+    text-align: left;
+    margin-bottom: 20px;
+}
+#SurveyTitle{
+    margin-bottom: 5px;
+    color: var(--fontColor-accent);
+}
+#SurveyTitle span{
+    color: var(--fontColor-primary);
+}
+.Survey-subtitle{
+    font-style: italic;
+}
+.surveyContainer{
+    display: flex;
+    flex-direction: column;
+    margin-right: 25px;
+    margin-bottom: 25px;
+}
+.surveyLabel{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+
+}
+.question{
+    font-weight: 600;
+    text-align: left;
+}
+.answer{
+    width: 100%;
+    margin: 5px 0;
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.surveyInput{
+    margin-left: auto;
+    
+    display: flex;
+    flex-direction: row;
+}
+.sliderN{
+    margin: auto 10px;
+    
+    font-weight: 400;
+}
+.choice{
+    margin-left: auto;
+    padding: 5px;
+    min-width: 31px;
+    
+    border: 2px solid var(--fontColor-accent);
+}
+
+.surveyTextInput{
+    width: 100%;
+    margin-top: 5px;
+    min-height: 6em;
+}
+#surveySubmit{
+    width: 80%;
+    margin-top: 25px;
+}
+.errorMsg{
+    width: 100%;
+    font-size: smaller;
+    color: rgba(189, 23, 9, .8);
+}
+@media (min-width:721px) {
+    .surveyRangeInput{
+        width: 200px;
+    }
+    .choice{
+        margin-right: 25px;
+    }
+}
+
+@media (min-width:1024px) {
+    .Survey{
+        margin-left: 25px;
+    }
+    .surveyInput{
+        margin-right:auto;
+        margin-left: 25%;
+    }
+    .choice{
+        margin-right: 20%;
+    }
+    .surveyTextInput{
+        margin-left: 5px;
+        margin-right: 20%;
+        height: 10em;
+    }
+    #surveySubmit{
+        width: 60%;
+        margin-right: 20%;
+    }
+}

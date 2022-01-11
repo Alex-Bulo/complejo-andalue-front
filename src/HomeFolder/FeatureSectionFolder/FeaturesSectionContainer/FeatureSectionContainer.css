@@ -1,0 +1,13 @@
+
+.FeatureSectionContainer{
+    margin:55px 25px;
+
+    padding: 0 10px;
+
+    display: flex;
+    flex-direction: column;
+}
+.FeatureSectionContainer .title{
+    text-align: center;
+    margin: auto;
+}

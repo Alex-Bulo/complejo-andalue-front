@@ -1,0 +1,36 @@
+.FeatureDescription{
+    margin: 20px auto;
+
+    font-size: var(--mobile-fontSize-detail);
+    width: 50%;
+}
+.feature-name{
+    margin-top: 5px;
+
+    line-height: 20px;
+
+    font-weight: 600;
+    color: var(--fontColor-accent);
+}
+.feature-icon{
+    font-size: 22px;
+}
+
+@media (min-width: 721px){
+    .FeatureDescription{
+        width: 20%;
+
+        font-size: var(--desktop-fontSize-detail);
+    }
+}
+
+@media (min-width: 1024px){
+    .FeatureDescription{
+        position: relative;
+
+        margin: 15px auto;
+        
+        width: 15%;
+    }
+
+}

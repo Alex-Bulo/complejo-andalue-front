@@ -1,0 +1,264 @@
+.popUpBackground{
+    height: 100vh;
+    width: 100vw;
+    min-width: 260px;
+    z-index: 99999;
+
+    position: fixed;
+    top:0;
+    left:0;
+
+    background-color: rgba(0,0,0,.4);
+
+    justify-content: center;
+    align-items: center;
+}
+
+.popUpContainer{
+    position: relative;
+
+    padding: 25px;
+    width: 88%;
+    height: 88%;
+
+    background-color: rgb(245, 247, 252);
+
+    border-radius: 15px;
+    border: 1.5px solid #9B9B9B;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+
+    overflow-y: scroll;
+}
+.popUpContainer h4{
+    margin-left: auto;
+
+    line-height: 1.5em;
+    font-weight: 700;
+    
+    color: rgba(0, 115, 170, 1);
+}
+
+.popUpContainer .closeBox{
+    position: absolute;
+    cursor: pointer;
+
+    right: 8px;
+    top: 8px;
+}
+
+.popUpInfoContainer{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.name-dates{
+    margin: 10px 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.name-dates p{
+    margin-right: auto;
+    /* margin-right: auto; */
+
+    font-weight: 700;
+    line-height: 1.5em;
+
+    text-align: left;
+}
+.name-dates span{
+    font-weight: 400;
+}
+.pagos{
+    margin: 4px 0;
+    margin-right: auto;
+    
+    line-height: 1.2em;
+    
+    text-align: left;
+}
+.pagos p{
+    margin-top: 6px;
+}
+.detalles{
+    margin: 10px 0;
+    
+    line-height: 1.2em;
+}
+.detalles a{
+    font-size: smaller;
+    font-style: italic;
+}
+.detalles p{
+    margin-right: auto;
+    
+    text-align: left;
+}
+.popUpFeature{
+    margin: 8px 0;
+    list-style-type: none;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.popUpFeature i{
+    padding-right: 15px;
+    color: var(--fontColor-accent);
+}
+.popUpFeature h4{
+    display: none;
+}
+#popUpCTA{
+    width: 80%;
+}
+.Wpp-MailContainer{
+    width: max-content;
+    /* margin-left: auto; */
+
+    position: fixed;
+    cursor: pointer;
+
+    bottom: 55px;
+    right: 10%;
+}
+#mailImg,
+#wppImg{
+    width: 55px;
+}
+#mailIcn{
+    display: none;
+    width: 55px;
+
+    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.15));
+}
+#wppIcn{
+    width: 55px;
+
+    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.15));
+}
+
+.popUpContainer::-webkit-scrollbar{
+    width:15px;
+    overflow: hidden;
+}
+.popUpContainer::-webkit-scrollbar-track{
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    /* background: #002f4679; */
+    background: var(--bkgColor-form);
+}
+.popUpContainer::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    
+    background: var(--dropdown-active-bkgColor);
+}
+.mailFormBackground{
+    position: fixed;
+    top:0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0,0,0,.4);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#mailForm{
+    width: 90%;
+    height: 50%;
+    min-height: 260px;
+    max-height: 340px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+.mailForm-input{
+    margin: 5px 0;
+    padding-left: .5em;
+    line-height: 1.8em;
+    width: 100%;
+
+    border: 1px solid var(--fontColor-accent); 
+    border-radius: 5px;
+}
+#mailFormCTA{
+    width: 100%;
+    margin-top: auto;
+}
+.mailForm-title{
+    margin-bottom: 10px;
+    margin-right: auto;
+}
+.mailForm-label{
+    position: relative;
+
+    margin-top: 10px;
+
+    font-weight: 600;
+    font-size: var(--mobile-fontSize-detail);
+    color: var(--fontColor-primary);
+    
+    text-align: left;
+}
+.error-mailFormName,
+.error-mailFormMail{
+    top: 88%;
+}
+
+
+
+@media (min-width: 721px){
+    #popUpCTA{
+        width: 60%;
+    }
+    .name-dates{
+        padding-left: 25px;
+
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .name-dates p:nth-child(1),
+    .name-dates p:nth-child(2){
+        width: 50%;
+        
+    }
+    .name-dates p:nth-child(2){
+        padding-left: 5px;
+    }
+    .popUpFeature{
+        margin: 12px 0;
+    }
+    #mailIcn{
+        display: initial;
+    }
+    #mailIcn button{
+        border: none;
+        cursor: pointer;
+        background: none;
+    }
+    #mailForm{
+        max-width: 720px;
+    }
+    .mailForm-input{
+        max-width: 600px;
+    }
+    #mailFormCTA{
+        margin-bottom: 25px;
+    }
+
+}
+
+@media (min-width:1024px) {
+
+    
+}

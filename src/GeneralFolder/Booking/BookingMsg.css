@@ -1,0 +1,38 @@
+.BookingMsgBackground{
+    z-index: 9999;
+    position: fixed;
+    top:0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0,0,0,.4);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#mailEndMsg{
+    width: 50%;
+    height: 60%;
+
+    padding: 15px;
+
+    overflow: hidden;
+}
+.mailEnd-msg{
+    text-align: left;
+}
+
+
+@media (min-width: 721px){
+    #mailEndMsg{
+        height: 50%;
+
+        padding: 25px;
+    }
+
+}

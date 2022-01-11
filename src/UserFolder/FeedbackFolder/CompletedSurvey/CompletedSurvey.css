@@ -1,0 +1,44 @@
+.CompletedSurvey{
+    width: 100%;
+    min-height: 80vh;
+
+    padding: 10px 15px;
+}
+.overallContainer{
+    display: flex;
+    flex-direction: column;
+}
+.overallBox{
+    font-size: 20px;
+    font-weight: 600;
+}
+.overallBox,
+.completed-answer{
+    height: 40px;
+    width: 40px !important;
+
+    margin: 5px auto !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center;
+    
+    border: 2px solid var(--fontColor-accent);
+}
+.completed-textAnswer{
+    max-width: 735px;
+    min-height: 4em;
+
+    margin: 5px auto !important;
+    padding: 5px;
+    
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center;
+    
+    border: 2px solid var(--fontColor-accent);
+}
+#contactUsLink{
+    cursor: pointer;
+    color: var(--fontColor-accent);
+}

@@ -1,0 +1,126 @@
+.AvailDetail:first-child{
+    margin-top: 25px;
+}
+.AvailDetail:last-child{
+    margin-bottom: 0;
+    border: none;
+}
+.AvailDetail{
+    height: 110px;
+
+    margin-bottom: 15px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: var(--mobile-fontSize-detail);
+
+    border-bottom: .5px solid var(--lineDivider-color);
+}
+
+.snippet{
+    display: none;
+}
+.cabinContainer{
+    text-align: left;
+    width: 100px;
+}
+
+.availDate{
+
+    margin-bottom: 5px;
+    /* padding-left: 10px; */
+    margin-right: 15px;
+
+    font-weight: 600;
+    text-align: left;
+}
+.dateContainer span,
+.cabintitle{
+    display: block;
+    text-decoration: underline;
+
+    font-size: smaller;
+    color: var(--fontColor-accent);
+    font-weight: 600;
+
+}
+.availCTAContainer{
+    width: 40%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+.moreInfoBtn,
+.availCTAContainer button{
+    width: 100%;
+    line-height: 35px;
+}
+.notAvail{
+    opacity: .5;
+}
+.notAvail .cabinContainer a{
+    cursor:initial;
+}
+.notAvail-msg{
+    font-size: smaller;
+    color: rgba(189, 23, 9,1);
+}
+
+@media (min-width: 721px){
+    .AvailDetail{
+        justify-content: space-evenly;
+        font-size: var(--desktop-fontSize-detail);
+    }
+    .cabinContainer{
+        margin-bottom: 5px;
+        width: 15%;
+
+        text-align: center;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .snippet{
+        margin: 0;
+        width: 70px;
+        
+        display: inline-block;
+
+        border-radius: 15px;
+    }
+    .availCTAContainer{
+        width: 25%;
+    }
+    .cabintitle{
+        display: none;
+    }    
+}
+
+@media (min-width: 1024px){
+    .cabinContainer{
+        width: 30%;
+        flex-direction: row;
+    }
+    .availCabin{
+        width: 30%;
+        text-align: left;
+    }
+    .snippet{
+        width: 79px;
+    }
+
+    .dateContainer{
+        width: 15%;
+    }
+    #cabinName{
+        width: 50%;
+    }
+}

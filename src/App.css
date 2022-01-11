@@ -1,0 +1,144 @@
+.App {
+  text-align: center;
+  background-color: var(--bkgColor-main);
+  color: var(--fontColor-primary);
+  width: 100vw;
+  min-width: 320px;
+  /* max-width: 1300px; */
+  margin: auto;
+}
+a{
+  cursor: pointer;
+
+  text-decoration: none;
+  color: inherit;
+}
+.title{
+  margin-bottom: 15px;
+
+  color: var(--fontColor-accent);
+  font-weight: 700;
+}
+.pointerClass{
+  cursor: pointer !important;
+}
+/* ----------------------------------------------------------------------------------------------- */
+
+.show{
+  display: flex !important;
+}
+.no-show{
+  display: none !important;
+}
+.hoverBox{
+  padding: 5px;
+
+  position: absolute;
+  z-index: 8;
+  width: 100%;
+  max-width: 270px;
+
+  top: 115%;
+  left: -5%;
+  
+  background-color: #fff;
+  color: #000;
+  line-height: 20px;
+  font-size: var(--mobile-fontSize-detail);
+  font-weight: var(--mobile-fontWeight-detail);
+
+  border: 0.3px solid #9b9b9b77;
+  box-shadow:  0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.hoverBox:after{
+  content: '';
+  width: 0;
+  height: 0;
+
+  position: absolute;
+  top: -10px;
+  left: 45%;
+
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent #fff  transparent;
+
+}
+
+.CTA-active{
+  cursor: pointer;
+
+  align-self: center;
+
+  background-color: var(--CTAmain-active-bkgColor);
+  color: var(--CTAmain-active-fontColor);
+
+  font-weight: 700;
+  line-height: 45px;
+
+  border: none;
+  border-radius: 15px;
+  box-shadow: 2px 2px 11px 3px rgba(0, 77, 77, 0.2);
+}
+.CTAsecondary-active{
+  cursor: pointer;
+
+  align-self: center;
+
+  background-color: var(--CTAsecondary-active-bkgColor);
+  color: var(--CTAsecondary-active-fontColor);
+
+  font-weight: 700;
+  line-height: 45px;
+
+  border: var(--CTAsecondary-active-border);
+  border-radius: 15px;
+  box-shadow: 2px 2px 11px 3px rgba(0, 77, 77, 0.2);
+}
+
+.CTA-inactive{
+  cursor: not-allowed;
+  background-color: var(--CTAmain-inactive-bkgColor);
+  color: var(--CTAmain-inactive-fontColor);
+
+  align-self: center;
+  
+  font-weight: 700;
+  line-height: 45px;
+
+  border: none;
+  border-radius: 15px;
+  box-shadow: 2px 2px 11px 3px rgba(0, 77, 77, 0.2);
+}
+.CTAsecondary-inactive{
+  background-color: var(--CTAsecondary-inactive-bkgColor);
+  color: var(--CTAsecondary-inactive-fontColor);
+
+  align-self: center;
+  
+  font-weight: 700;
+  line-height: 45px;
+
+  border: none;
+  border-radius: 15px;
+  box-shadow: 2px 2px 11px 3px rgba(0, 77, 77, 0.2);
+}
+.CTA-active{
+  transition: all .15s ease-in-out;
+}
+.CTA-active:hover{
+  background-color: var(--CTAmain-hover-bkgColor);
+  transform: scale(1.015);
+}
+.CTA-active:active{
+  background-color: var(--CTAmain-pressed-bkgColor);
+  color: var(--CTAmain-pressed-fontColor);
+}
+.CTAsecondary-active:active{
+  background-color: var(--CTAsecondary-pressed-bkgColor);
+  color: var(--CTAsecondary-pressed-fontColor);
+}
+.CTAsecondary-active:hover{
+  background-color: var(--CTAsecondary-hover-bkgColor);
+  transform: scale(1.015);
+}
