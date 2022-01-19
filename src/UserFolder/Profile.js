@@ -1,13 +1,15 @@
 
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { getFullDate } from '../helpers/dateHelper';
+import { getFullDate, isAfter } from '../helpers/dateHelper';
 
 import './Profile.css'
 
 
 function Profile() {
     const {user} = useAuth()
+    console.log(user);
+    
     
     return (
         <main className='Profile'>
@@ -21,15 +23,19 @@ function Profile() {
             {
                 user.bookings.map((booking,i) => {
                     return(
-                        <Link key={booking.id+"-"+i} 
-                            className='CTAsecondary-active bookingLink'        
-                            to={`/profile/${user.id}/${booking.code}`}                              
-                            >
-   
-                            <p>Reserva<br/><span>{booking.cabin}</span></p>
-                            <p>{getFullDate(booking.startDate)}</p>
-   
-                        </Link>  
+                        <section className='bookingLinkContainer'>
+                            <Link key={booking.id+"-"+i} 
+                                className='CTAsecondary-active bookingLink'        
+                                to={`/profile/${user.id}/${booking.code}`}                              
+                                >
+    
+                                <p>Reserva<br/><span>{booking.cabin}</span></p>
+                                <p>{getFullDate(booking.startDate)}</p>
+    
+                            </Link>
+                            {!booking.feedback && !isAfter(undefined, booking.endDate)? <p className='fbReminder'> No olvides valorar tu estadía!</p> : ''}
+                        </section>
+
                     )
                 })
             }

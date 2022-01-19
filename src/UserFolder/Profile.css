@@ -32,11 +32,14 @@
     font-weight: 600;
     color: var(--fontColor-accent);
 }
+.fbReminder{
+    margin-top: -15px;
+    margin-bottom: 15px;
+    color:var(--fontColor-accent)
+}
 .bookingLink{
     width: 95%;
-    
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin: 20px auto;
     
     display: flex;
     justify-content: space-between;

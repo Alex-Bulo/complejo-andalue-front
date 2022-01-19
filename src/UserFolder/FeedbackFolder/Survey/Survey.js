@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from 'react';
+import { useInfo } from '../../../context/InfoContext';
 import Spinning from '../../../loaders/Spinning';
 import './Survey.css'
 
@@ -7,6 +8,8 @@ import './Survey.css'
 function Survey({questions, errors, sendSurvey, sending}) {
     const [inputsControl, setInputControl] = useState(null)
     const [loading, setLoading] = useState(true)
+
+    const {info} = useInfo()
 
     
     useEffect(()=>{
@@ -51,7 +54,7 @@ function Survey({questions, errors, sendSurvey, sending}) {
     return (
         <section className='Survey'>
             <header className='Survey-header'>
-                <h4 id='SurveyTitle' className='title'>Contanos tu experiencia en <span>Andalue</span>.</h4>
+                <h4 id='SurveyTitle' className='title'>Contanos tu experiencia en <span>{info.placeShortname}</span>.</h4>
                 <p className='Survey-subtitle'>Tu opinión nos ayuda!<br/>Dejanos tus comentarios y califica tu estadía del 1 al 10 (mayor grado de satisfacción).</p>
             </header>
 

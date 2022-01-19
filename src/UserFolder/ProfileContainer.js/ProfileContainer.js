@@ -12,7 +12,7 @@ import './ProfileContainer.css'
 import { useAuth } from '../../context/AuthContext';
 
 
-function ProfileContainer({display}) {
+function ProfileContainer() {
     const {user} = useAuth()
     const {code} = useParams()
     

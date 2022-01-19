@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useInfo } from '../context/InfoContext';
 import AvailDetailContainer from '../GeneralFolder/AvailDetailContainer/AvailDetailContainer';
 import AvailFormContainer from '../GeneralFolder/AvailFormFolder/AvailFormContainer/AvailFormContainer';
 import './Location.css'
@@ -7,7 +8,7 @@ import './Location.css'
 
 function Location() {
     const [displayInfo , setDisplayInfo] = useState(true)    
-    
+    const {info} = useInfo()
     
     return (  
         
@@ -19,18 +20,18 @@ function Location() {
                     <h4 className='mapInfo-title title'> Dónde estamos?</h4>
                     
                     <p className='mapInfo-address'>
-                        Cubillos 8000, San Rafael, Mendoza
+                        {info.direction}
                     </p>
 
                     <ul className='mapInfo-infoContainer'>                        
                         <li className='mapInfo-infoItem' id='valleGrande'>
-                            A 20km de Valle Grande
+                            {info.closeOne}
                         </li>
                         <li className='mapInfo-infoItem' id='city'>
-                            A 25km de San Rafael ciudad
+                            {info.closeTwo}
                         </li>
                         <li className='mapInfo-infoItem' id='plane'>
-                            A 30km de Aeropuerto
+                            {info.closeThree}
                         </li>
 
                     </ul>

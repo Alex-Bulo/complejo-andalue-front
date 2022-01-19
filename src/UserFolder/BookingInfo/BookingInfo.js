@@ -2,8 +2,11 @@
 import './BookingInfo.css'
 import moment from 'moment'
 import {getDaysFromToday} from '../../helpers/dateHelper'
+import { useInfo } from '../../context/InfoContext';
 
 function BookingInfo({booking}) {
+
+  const {info} = useInfo()
   
     return (
         <>
@@ -13,7 +16,7 @@ function BookingInfo({booking}) {
           </header>
           
             <article className='bookingInfo-title'>
-              <img src={booking.cabinImage} alt={`Foto principal de la cabaña ${booking.cabin} reservada en Andalue`} className='cabinPic'/>
+              <img src={booking.cabinImage} alt={`Foto principal de la cabaña ${booking.cabin} reservada en ${info.placeShortname}`} className='cabinPic'/>
               <h5 id='bookingInfoTitle' className='title'> Tu reserva en {booking.cabin}</h5>
             </article>
             
@@ -36,12 +39,6 @@ function BookingInfo({booking}) {
                       <th className='tableHeaders'><i className="fas fa-door-open tableIcon"/>Fecha de Egreso</th>
                       <td className='tableData'>{moment(booking.endDate).format('DD/MM/YY')}</td>
                     </tr>
-                  
-                  </tbody>
-              </table>
-              
-              <table className='table-qty'>
-                <tbody>
                     <tr className='tableRows'>
                         <th className='tableHeaders'><i id='usersIcon' className='fas fa-users tableIcon'/>Adultos</th>
                         <td className='tableData'>{booking.adults}</td>
@@ -56,14 +53,15 @@ function BookingInfo({booking}) {
                         <th className='tableHeaders'><i className='fas fa-paw tableIcon'/>Mascotas</th>
                         <td className='tableData'>{booking.pets}</td>
                     </tr>
-                </tbody>
+
+                  </tbody>
               </table>
 
               <table className='table-user'>
                 <tbody>
                     <tr className='tableRows'>
-                        <th className='tableHeaders'><i className='fas fa-user tableIcon'/>Reserva de</th>
-                        <td className='tableData'>{booking.userName}</td>
+                        <th className='tableHeaders'><i className='fas fa-user tableIcon'/>Huesped</th>
+                        <td className='tableData'>{booking.userName} {booking.userLastName}</td>
                     </tr>
 
                     <tr className='tableRows'>
@@ -78,25 +76,60 @@ function BookingInfo({booking}) {
                 </tbody>
               </table>
 
+              <table className='table-price'>
+                <tbody>
+                <tr className='tableRows'>
+                        <th className='tableHeaders'><i className="fas fa-dollar-sign tableIcon"></i>Precio</th>
+                        <td className='tableData'>$ {Intl.NumberFormat(undefined,{style:'currency',currency:'ARS'}).format(Number(booking.price))}</td>
+                    </tr>
+
+                    <tr className='tableRows'>
+                        <th className='tableHeaders'><i className="fas fa-coins tableIcon"></i>Monto al reservar</th>
+                        <td className='tableData'>$ {Intl.NumberFormat(undefined,{style:'currency',currency:'ARS'}).format(Number(booking.firstPayment))}</td>
+                    </tr>
+
+                    <tr className='tableRows'>
+                        <th className='tableHeaders'><i className="fas fa-calendar-check tableIcon"></i>Primer Pago</th>
+                        <td className='tableData' style={booking.firstPaymentDate ? {color:'darkgreen'} : {color:'darkred'} }>
+                          {booking.firstPaymentDate && moment(booking.firstPaymentDate).format('DD/MM/YY')}
+                          {!booking.firstPaymentDate && 'Abonar Monto Al Reservar'}
+                        </td>
+                    </tr>
+
+                    <tr className='tableRows'>
+                        <th className='tableHeaders'><i className="fas fa-coins tableIcon"></i>Monto al arribar</th>
+                        <td className='tableData'>$ {Intl.NumberFormat(undefined,{style:'currency',currency:'ARS'}).format(Number(booking.secondPayment))}</td>
+                    </tr>
+
+                    <tr className='tableRows'>
+                        <th className='tableHeaders'><i className="fas fa-calendar-check tableIcon"></i>Segundo Pago</th>
+                        <td className='tableData' style={booking.secondPaymentDate ? {color:'green'} : {color:'darkred'} }>
+                          {booking.secondPaymentDate && moment(booking.secondPaymentDate).format('DD/MM/YY')}
+                          {!booking.secondPaymentDate && 'Abonar Monto Al Arribar'}
+                        </td>
+                    </tr>
+                </tbody>
+              </table>
+
               <table className='table-andalue'>
                 <tbody>
                     <tr className='tableRows'>
                         <th className='tableHeaders'><i className="fas fa-clock tableIcon"/>Horario Check In</th>
-                        <td className='tableData'>Desde 12am</td>
+                        <td className='tableData'>{info.checkIn}</td>
                     </tr>
                     <tr className='tableRows'>
                         <th className='tableHeaders'><i className="fas fa-clock tableIcon"/>Horario Check Out</th>
-                        <td className='tableData'>Hasta 9am</td>
+                        <td className='tableData'>{info.checkOut}</td>
                     </tr>
 
                     <tr className='tableRows'>
-                        <th className='tableHeaders'><i className="fas fa-info tableIcon infoIcon"/>Griselda</th>
-                        <td className='tableData'>+54040402013213</td>
+                        <th className='tableHeaders'><i className="fas fa-info tableIcon infoIcon"/>Atención</th>
+                        <td className='tableData'dangerouslySetInnerHTML={{__html: info.contactExtra}}/>
                     </tr>
 
                     <tr className='tableRows'>
-                        <th className='tableHeaders'><i className="fas fa-info tableIcon infoIcon"/>Dueños</th>
-                        <td className='tableData'>+54114445555 (Diego)<br/>+54114445555 (Sonia) </td>
+                        <th className='tableHeaders'><i className="fas fa-info tableIcon infoIcon"/>Encargados</th>
+                        <td className='tableData'dangerouslySetInnerHTML={{__html: info.contactOwners}}/>
                     </tr>
                 </tbody>
               </table>

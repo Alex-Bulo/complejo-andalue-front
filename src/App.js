@@ -15,72 +15,73 @@ import Contact from './ContactFolder/Contact';
 import ProtectedRoute from './protectedRoutes/ProtectedRoute';
 import Profile from './UserFolder/Profile';
 import ProfileContainer from './UserFolder/ProfileContainer.js/ProfileContainer';
+import { useInfo } from './context/InfoContext';
+
 
 function App() {
     
   const {preference} = useAuth()
-
+  const {info} = useInfo()
+  
   return (
+    info &&
+        <AvailProvider>
+          <BrowserRouter>
+            <div className={`App ${preference.theme}`}>
+                <Header/>
+              
+                  <Switch>
+                  <Route exact path='/test1' >
+                      <Test/>
+                    </Route>
+                    
+                    <Route exact path='/' >
+                      <Home/>
+                    </Route>
 
-      <AvailProvider>
-        <BrowserRouter>
-          <div className={`App ${preference.theme}`}>
-              <Header/>
-            
-                <Switch>
-                <Route exact path='/test1' >
-                    <Test/>
-                  </Route>
-                  <Route exact path='/test/:id' >
-                    <Test2/>
-                  </Route>
+                    <Route path='/casas/:id?' >
+                      <Products/>
+                    </Route>
+
+
+                    <Route exact path='/ubicacion' >
+                      <Location/>
+                    </Route>
+
+                    <Route exact path='/contacto' >
+                      <Contact/>
+                    </Route>
+
+
+                    <Route exact path='/profile' >
+                      <Redirect to={{pathname:'/'}}/>
+                    </Route>
+      
+                    <Route exact path='/profile/:id/:code' >
+                      <ProtectedRoute 
+                        component={ProfileContainer}
+                        />
+
+                    </Route>
+                    <Route path='/profile/:id' >
+                      <ProtectedRoute 
+                        component={Profile}
+                        />                    
+                    </Route>
+                    
+                    <Route path='/proximamente' >
+                      <h4>proximamente</h4>
+                    </Route>
                   
-                  <Route exact path='/' >
-                    <Home/>
-                  </Route>
+                  </Switch> 
 
-                  <Route path='/casas/:id?' >
-                    <Products/>
-                  </Route>
-
-
-                  <Route exact path='/ubicacion' >
-                    <Location/>
-                  </Route>
-
-                  <Route exact path='/contacto' >
-                    <Contact/>
-                  </Route>
-
-
-                  <Route exact path='/profile' >
-                    <Redirect to={{pathname:'/'}}/>
-                  </Route>
+              <Footer/>
+              
+            </div>
+          </BrowserRouter>
+        </AvailProvider>
     
-                  <Route exact path='/profile/:id/:code' >
-                    <ProtectedRoute 
-                      component={ProfileContainer}
-                    />
-
-                  </Route>
-                  <Route path='/profile/:id' >
-                    <ProtectedRoute 
-                      component={Profile}
-                    />                    
-                  </Route>
-                  
-                  <Route path='/proximamente' >
-                    <h4>proximamente</h4>
-                  </Route>
-                
-                </Switch> 
-
-            <Footer/>
-            
-          </div>
-        </BrowserRouter>
-      </AvailProvider>
-
+    
   );
 }
 

@@ -36,7 +36,7 @@ function ContactForm({setSending, setDelivered}) {
         e.preventDefault()
         
         if(!formErrors.name.status && !formErrors.mail.status && !formErrors.info.status){
-            
+
             setSending({status:true,channel:'mail'})
             
             fetch(`${APIDOMAIN}/contactUs`,{

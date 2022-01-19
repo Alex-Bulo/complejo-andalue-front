@@ -20,7 +20,7 @@ function NavBar({showLogin, links}) {
       <nav className="NavBar">
             <i className='fas fa-ellipsis-h menuBtn' onClick={toggleLinks}></i>
             <div className={`bkg-links ${display ? 'show':''}`} onClick={toggleLinks}>
-                <ul className='navbar-links' onClick={(e)=>e.stopPropagation()}>
+                <ul className='navbar-links' >
                         {links.map(link => {
                             if(link.name ==='Ingresar'){
                                 return <div onClick={loginHandler} key={link.to} className='linkContainer'>

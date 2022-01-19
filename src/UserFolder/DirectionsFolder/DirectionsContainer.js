@@ -1,18 +1,16 @@
 
+import { useInfo } from '../../context/InfoContext';
 import Directions from './Directions';
 import './DirectionsContainer.css'
 
 
 function DirectionsContainer() {
-    //fetch info from BdD
-    const videos = [
-        {video: 'http://localhost:3001/videos/DesdeSanRafael.mp4', title:'Desde San Rafael'},
-        {video: 'http://localhost:3001/videos/DesdeGralAlvear.mp4', title:'Desde Gral Alvear'}
-    ]
+    const {info} = useInfo()
+
     return (
         <main className='DirectionsContainer'>
             <header>
-                <h4 className='DirectionsContainerTitle'>¿Cómo llegar a <span>Andalue</span>?</h4>
+                <h4 className='DirectionsContainerTitle'>¿Cómo llegar a <span>{info.placeShortname}</span>?</h4>
                 <h5 id='DirectionsDisclaimer' className='disclaimer'>Guarda nuestra ubicación y mira los videos para más detalles.</h5>
             </header>
 
@@ -27,13 +25,13 @@ function DirectionsContainer() {
 
                     <ul className='mapInfo-infoContainer'>                        
                         <li className='mapInfo-infoItem' id='valleGrande'>
-                            A 20km de Valle Grande
+                            {info.closeOne}
                         </li>
                         <li className='mapInfo-infoItem' id='city'>
-                            A 25km de San Rafael ciudad
+                            {info.closeTwo}
                         </li>
                         <li className='mapInfo-infoItem' id='plane'>
-                            A 30km de Aeropuerto
+                            {info.closeThree}
                         </li>
 
                     </ul>
@@ -41,7 +39,13 @@ function DirectionsContainer() {
             </section>
             
             <section className='videosContainer'>
-                {videos.map((video,i) => <Directions key={i} video={video} />)}
+                
+                {info.videoOneTitle && <Directions video={ {title:info.videoOneTitle, video:info.videoOne}} /> }
+
+                {info.videoTwoTitle && <Directions video={ {title:info.videoTwoTitle, video:info.videoTwo}} /> }
+                
+                {info.videoThreeTitle && <Directions video={ {title:info.videoThreeTitle, video:info.videoThree}} /> }
+                                
             </section>
         
         </main>

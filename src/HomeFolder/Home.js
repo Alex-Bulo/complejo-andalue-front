@@ -7,10 +7,11 @@ import CommentSectionContainer from './CommentSectionFolder/CommentSectionContai
 import FeatureSectionContainer from './FeatureSectionFolder/FeaturesSectionContainer/FeatureSectionContainer';
 import './Home.css'
 import AvailDetailContainer from '../GeneralFolder/AvailDetailContainer/AvailDetailContainer';
+import { useInfo } from '../context/InfoContext';
 
 
 function Home() {    
-    
+    const {info} = useInfo()
     return (  
         
         <main className='Home'>
@@ -21,11 +22,7 @@ function Home() {
 
             <section className='welcomeContainer'>
                 <header className='title'>¡Bienvenidos!</header>
-                <p className='welcome-msg'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, modi quod eius excepturi dolorum recusandae voluptate distinctio at, nesciunt tempora magni explicabo iusto quo ab ut laborum cupiditate expedita sint. <br/>
-                    <br/>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, modi quod eius excepturi dolorum recusandae voluptate distinctio at, nesciunt tempora magni explicabo iusto quo ab ut laborum cupiditate expedita sint.Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, modi quod eius excepturi dolorum recusandae voluptate distinct. <br/> 
-                    <br/>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, modi quod eius excepturi dolorum. <br/>
-                </p>
+                <p className='welcome-msg' dangerouslySetInnerHTML={{__html: info.welcomeMsg}}/>
             </section>
             
             <FeatureSectionContainer />

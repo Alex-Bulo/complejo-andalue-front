@@ -2,6 +2,7 @@ import moment from 'moment'
 import 'moment/locale/es-mx'
 import { useEffect, useRef, useState } from 'react';
 import { useAvail } from '../../context/AvailContext';
+import { useInfo } from '../../context/InfoContext';
 import { getFullDate } from '../../helpers/dateHelper';
 import { isEmail, isEmpty } from '../../helpers/formValidations';
 import { APIDOMAIN, getWppMsg } from '../../helpers/helpers';
@@ -22,6 +23,7 @@ function Booking({cabin, bookDates}) {
     const userName = useRef(null)
     const userMail = useRef(null)
     
+    const {info} = useInfo()
     const {query} = useAvail()
     moment.updateLocale('es-mx')
 
@@ -34,6 +36,7 @@ function Booking({cabin, bookDates}) {
             }
         
     },[popUp, cabin.name, bookDates, query])
+
     useEffect(()=>{
         // console.log(mailFormErrors);
         setMailFormErrors({name:null,mail:null,send:false})
@@ -44,6 +47,7 @@ function Booking({cabin, bookDates}) {
         }
 
     },[mailFormDisplay])
+
     const wppHandler = () => {
         setMailEndMsg('success')
         setChannel('wpp')
@@ -128,8 +132,8 @@ function Booking({cabin, bookDates}) {
                     
                     <main className='popUpInfoContainer'>
                         <section className='name-dates'>
-                            <p>Ingreso: <span>{getFullDate(bookDates[0])} - desde 12am.</span></p>
-                            <p>Egreso: <span>{getFullDate(bookDates[1])} - hasta 9am. </span></p>
+                            <p>Ingreso: <span>{getFullDate(bookDates[0])} - {info.checkIn}</span></p>
+                            <p>Egreso: <span>{getFullDate(bookDates[1])} - {info.checkOut} </span></p>
                             <p>Adultos: <span>{query.adults} </span></p>
                             <p>Niños: <span>{query.kids} </span></p>
                             {query.pets>0 ? <p>Mascotas: <span>{query.pets} </span></p> : ''}
@@ -143,7 +147,7 @@ function Booking({cabin, bookDates}) {
                         
                         <section className='detalles'>
                             <p>
-                                La cabaña {cabin.name} cuenta con las siguientes comodidades y servicios <br/>(<a href={`http://localhost:3000/casas/${cabin.id}`} target='_blank' rel="noopener noreferrer">Ver fotos</a>)
+                                La cabaña {cabin.name} cuenta con las siguientes comodidades y servicios
                             </p>
 
                             <ul>
@@ -162,10 +166,10 @@ function Booking({cabin, bookDates}) {
                     </main>
                     <div className='Wpp-MailContainer'>
                         <img id='mailImg' src='/Gmail_Color.svg' alt='Enviar consulta para reservar' onClick={()=>setMailFormDisplay(true)}/>
-                        <a id='wppIcn' href={`https://api.whatsapp.com/send?phone=541155661334&text=${wppMsg}`} target='_blank' rel="noopener noreferrer"><img id='wppImg' src='/Whatsapp_Green.svg' alt='Enviar Whatsapp a Complejo Andalue'/></a>
+                        <a id='wppIcn' href={`https://api.whatsapp.com/send?phone=${info.contactCell}&text=${wppMsg}`} target='_blank' rel="noopener noreferrer"><img id='wppImg' src='/Whatsapp_Green.svg' alt='Enviar Whatsapp a Complejo Andalue'/></a>
                     </div>
                     
-                    <a  onClick={wppHandler} href={`https://api.whatsapp.com/send?phone=541155661334&text=${wppMsg}`} target='_blank' rel="noopener noreferrer"><button id='popUpCTA' className='CTA-active'>Contactar</button></a>
+                    <a  onClick={wppHandler} href={`https://api.whatsapp.com/send?phone=${info.contactCell}&text=${wppMsg}`} target='_blank' rel="noopener noreferrer"><button id='popUpCTA' className='CTA-active'>Contactar</button></a>
                     {/* MAIL POPUP */}
                     <div className={`mailFormBackground ${mailFormDisplay ? 'show' :'no-show'}`} onClick={()=>setMailFormDisplay(false)}>
 
