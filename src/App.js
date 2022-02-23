@@ -35,6 +35,7 @@ function App() {
                     </Route> */}
                     
                     <Route exact path='/' >
+                      <h4>HOLA MUNDO</h4>
                       <Home/>
                     </Route>
 
@@ -71,7 +72,11 @@ function App() {
                     <Route path='/proximamente' >
                       <h4>proximamente</h4>
                     </Route>
-                  
+                    
+                    <Route path='*' >
+                      <h4>mi 404</h4>
+                    </Route>
+                    
                   </Switch> 
 
               <Footer/>
