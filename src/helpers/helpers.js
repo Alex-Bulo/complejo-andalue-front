@@ -1,4 +1,5 @@
-export const APIDOMAIN = process.env.DOMAIN + 'api' || 'http://localhost:3001/api'
+export const APIDOMAIN = 'https://andalue-kou8a.ondigitalocean.app/api' 
+// || 'http://localhost:3001/api'
 
 export const links=[
     {name:'Cabañas',to:'/casas'},
