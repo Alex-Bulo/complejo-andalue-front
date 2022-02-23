@@ -1,4 +1,5 @@
 import {createContext, useContext, useEffect, useState} from 'react'
+import { useHistory } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import { APIDOMAIN } from '../helpers/helpers';
 
@@ -11,6 +12,8 @@ export const useInfo = () => useContext(InfoContext);
 
 export const InfoProvider = ( {children} ) => {
     const [info, setInfo] = useState(false)
+
+    const history = useHistory()
     
     useEffect(()=>{
         try {
@@ -23,7 +26,8 @@ export const InfoProvider = ( {children} ) => {
             })
                 
         } catch (error) {
-            <Redirect to={{pathname:'/proximamente', state:{from:'/'}}}/>
+            console.log('ERROR');
+            history.push('/404')
             return  {status:'error',info:error}
         }
     },[])
