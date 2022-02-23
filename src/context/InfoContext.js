@@ -1,4 +1,5 @@
 import {createContext, useContext, useEffect, useState} from 'react'
+import { Redirect } from 'react-router-dom';
 import { APIDOMAIN } from '../helpers/helpers';
 
 
@@ -22,6 +23,7 @@ export const InfoProvider = ( {children} ) => {
             })
                 
         } catch (error) {
+            <Redirect to={{pathname:'/proximamente', state:{from:'/'}}}/>
             return  {status:'error',info:error}
         }
     },[])
