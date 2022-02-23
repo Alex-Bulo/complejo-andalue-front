@@ -15,13 +15,14 @@ import ProtectedRoute from './protectedRoutes/ProtectedRoute';
 import Profile from './UserFolder/Profile';
 import ProfileContainer from './UserFolder/ProfileContainer.js/ProfileContainer';
 import { useInfo } from './context/InfoContext';
+import { useLocation } from 'react-router-dom';
 
 
 function App() {
-    
+  const a = useLocation()
   const {preference} = useAuth()
   const {info} = useInfo()
-  
+  console.log(a);
   return (
     info &&
         <AvailProvider>
