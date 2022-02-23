@@ -1,5 +1,5 @@
 
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch, useLocation } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
 
 import './App.css';
@@ -15,14 +15,13 @@ import ProtectedRoute from './protectedRoutes/ProtectedRoute';
 import Profile from './UserFolder/Profile';
 import ProfileContainer from './UserFolder/ProfileContainer.js/ProfileContainer';
 import { useInfo } from './context/InfoContext';
-import { useLocation } from 'react-router-dom';
 
 
 function App() {
   const a = useLocation()
+  console.log(a);
   const {preference} = useAuth()
   const {info} = useInfo()
-  console.log(a);
   return (
     info &&
         <AvailProvider>
