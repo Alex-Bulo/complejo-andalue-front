@@ -7,9 +7,8 @@ import { AvailProvider } from './context/AvailContext';
 import Footer from './GeneralFolder/FooterFolder/Footer/Footer';
 import Header from './GeneralFolder/HeaderFolder/Header/Header';
 import Home from './HomeFolder/Home';
-import Test from './HomeFolder/Test';
+// import Test from './HomeFolder/Test';
 import Products from './ProductsFolder/Products';
-import Test2 from './HomeFolder/Test2';
 import Location from './LocationFolder/Location';
 import Contact from './ContactFolder/Contact';
 import ProtectedRoute from './protectedRoutes/ProtectedRoute';
@@ -31,9 +30,9 @@ function App() {
                 <Header/>
               
                   <Switch>
-                  <Route exact path='/test1' >
+                  {/* <Route exact path='/test1' >
                       <Test/>
-                    </Route>
+                    </Route> */}
                     
                     <Route exact path='/' >
                       <Home/>
