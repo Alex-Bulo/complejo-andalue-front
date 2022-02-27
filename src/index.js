@@ -3,16 +3,27 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { InfoProvider } from './context/InfoContext';
 
 ReactDOM.render(
   <React.StrictMode>
+    <BrowserRouter>
       <InfoProvider>
         <AuthProvider>
+
+          <Switch>
+            <Route exact path='/404'>
+              <h4>mi 404</h4>
+            </Route>
+          </Switch>
+
           <App />
+
         </AuthProvider>
       </InfoProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

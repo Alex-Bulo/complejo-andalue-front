@@ -15,27 +15,29 @@ export const InfoProvider = ( {children} ) => {
     const history = useHistory()
     
     useEffect(()=>{
-        try {
             fetch(`${APIDOMAIN}/webInfo`)
             .then(response => {
+                // console.log(response);
                 if(response.ok){
-                    response.json()
+                    return response.json() 
+                    
                 }else{
-                    throw new Error(response.status)
+                    
+                    throw new Error ('errorr')
                 }
-            })
+        })
             .then(dbInfo => {
-                console.log('1:  ', dbInfo);
+
+                // console.log('1:  ', dbInfo);
+                
                 if(dbInfo.meta.status === 'success'){
                     setInfo(dbInfo.data)
                 }
             })
-                
-        } catch (error) {
-            console.log('ERROR');
-            history.push('/404')
-            return  {status:'error',info:error}
-        }
+            .catch(error => {
+                // console.log('1 ERROR', error);
+                history.push('/404')
+            })
     },[])
 
 

@@ -1,5 +1,5 @@
 
-import { BrowserRouter, Redirect, Route, Switch, useLocation } from 'react-router-dom';
+import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
 
 import './App.css';
@@ -26,7 +26,6 @@ function App() {
   return (
     info &&
         <AvailProvider>
-          <BrowserRouter>
             <div className={`App ${preference.theme}`}>
                 <Header/>
               
@@ -34,7 +33,7 @@ function App() {
                   {/* <Route exact path='/test1' >
                       <Test/>
                     </Route> */}
-                    
+
                     <Route exact path='/' >
                       <h4>HOLA MUNDO</h4>
                       <Home/>
@@ -74,16 +73,13 @@ function App() {
                       <h4>proximamente</h4>
                     </Route>
                     
-                    <Route path='*' >
-                      <h4>mi 404</h4>
-                    </Route>
+                    
                     
                   </Switch> 
 
               <Footer/>
               
             </div>
-          </BrowserRouter>
         </AvailProvider>
     
     
