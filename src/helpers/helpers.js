@@ -1,5 +1,5 @@
-export const APIDOMAIN = 'https://andalue-kou8a.ondigitalocean.app/api' 
-// export const APIDOMAIN = 'http://localhost:3001'
+// export const APIDOMAIN = 'https://andalue-kou8a.ondigitalocean.app/api' 
+export const APIDOMAIN = 'http://localhost:3001'
 
 export const links=[
     {name:'Cabañas',to:'/casas'},
