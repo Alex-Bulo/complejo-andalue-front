@@ -1,6 +1,5 @@
 import {createContext, useContext, useEffect, useState} from 'react'
 import { useHistory } from 'react-router-dom';
-import { Redirect } from 'react-router-dom';
 import { APIDOMAIN } from '../helpers/helpers';
 
 
@@ -19,8 +18,11 @@ export const InfoProvider = ( {children} ) => {
         try {
             fetch(`${APIDOMAIN}/webInfo`)
             .then(response => {
-                console.log('0: ',response);
-                response.json()
+                if(response.ok){
+                    throw new Error(response.status)
+                }else{
+                    response.json()
+                }
             })
             .then(dbInfo => {
                 console.log('1:  ', dbInfo);
