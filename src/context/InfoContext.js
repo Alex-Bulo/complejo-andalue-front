@@ -19,9 +19,9 @@ export const InfoProvider = ( {children} ) => {
             fetch(`${APIDOMAIN}/webInfo`)
             .then(response => {
                 if(response.ok){
-                    throw new Error(response.status)
-                }else{
                     response.json()
+                }else{
+                    throw new Error(response.status)
                 }
             })
             .then(dbInfo => {
