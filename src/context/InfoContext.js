@@ -24,6 +24,9 @@ export const InfoProvider = ( {children} ) => {
                     setInfo(dbInfo.data)
                 }
             })
+            .catch(err => {
+                throw new Error(err)
+            })
                 
         } catch (error) {
             console.log('ERROR');
