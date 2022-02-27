@@ -1,6 +1,6 @@
 {
   "name": "complejo-andalue-front",
-  "homepage": "https://andalue-kou8a.ondigitalocean.app/",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

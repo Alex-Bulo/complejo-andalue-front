@@ -18,8 +18,9 @@ import { useInfo } from './context/InfoContext';
 
 
 function App() {
-  const a = useLocation()
-  console.log(a);
+  // const a = useLocation()
+  var newURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname
+  console.log(newURL);
   const {preference} = useAuth()
   const {info} = useInfo()
   return (
