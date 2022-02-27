@@ -17,25 +17,19 @@ export const InfoProvider = ( {children} ) => {
     useEffect(()=>{
             fetch(`${APIDOMAIN}/webInfo`)
             .then(response => {
-                // console.log(response);
                 if(response.ok){
                     return response.json() 
-                    
                 }else{
-                    
-                    throw new Error ('errorr')
+                    throw new Error (response.status)
                 }
-        })
+            })
             .then(dbInfo => {
-
-                // console.log('1:  ', dbInfo);
                 
                 if(dbInfo.meta.status === 'success'){
                     setInfo(dbInfo.data)
                 }
             })
             .catch(error => {
-                // console.log('1 ERROR', error);
                 history.push('/404')
             })
     },[])

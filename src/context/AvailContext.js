@@ -1,4 +1,5 @@
 import {createContext, useContext, useState} from 'react'
+import { useHistory } from 'react-router-dom';
 import { APIDOMAIN } from '../helpers/helpers';
 
 
@@ -12,6 +13,8 @@ const dateToUse1 = today.getFullYear() + '-' + (today.getMonth()<=8 ? `0${today.
 const dateToUse2 = today.getFullYear() + '-' + (today.getMonth()<=8 ? `0${today.getMonth()+1}`:(today.getMonth()+1)) +'-' + (today.getDate() <=8 ? `0${today.getDate()+1}` : today.getDate()+1)
 
 export const AvailProvider = ( {children} ) => {
+    const history = useHistory()
+    
     const [availInfo, setAvailInfo] = useState(null)
 
     const [dateToBook, setDateToBook] = useState([dateToUse1,dateToUse2])
@@ -70,7 +73,13 @@ export const AvailProvider = ( {children} ) => {
         setQuery({...userSearch, status:null})
 
         fetch(`${APIDOMAIN}/avail/form?startDate=${userSearch.startDate}&endDate=${userSearch.endDate}&adults=${userSearch.adults}&kids=${userSearch.kids}&pets=${userSearch.pets}`)
-                .then(response => response.json())
+                .then(response => {
+                    if(response.ok){
+                        return response.json() 
+                    }else{
+                        throw new Error (response.status)
+                    }
+                })
                 .then(dbInfo => {
                     if(dbInfo.meta.status === 'error'){
                         cleanFormErrors()
@@ -84,7 +93,9 @@ export const AvailProvider = ( {children} ) => {
                     
                     }
                 })
-                .catch(error => console.log(error))    
+                .catch(error => {
+                    history.push('/404')
+                })    
     }
 
 

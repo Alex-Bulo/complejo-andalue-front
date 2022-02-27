@@ -5,9 +5,11 @@ import { useParams } from 'react-router-dom';
 import Spinning from '../../loaders/Spinning'
 import BookingInfo from './BookingInfo';
 import './BookingInfoContainer.css'
+import { useHistory } from 'react-router-dom';
 
 
 function BookingInfoContainer() {
+    const history = useHistory()
     const {code} = useParams()
     const [loading, setLoading] = useState(true)
     const [booking, setBooking] = useState(null)
@@ -17,7 +19,13 @@ function BookingInfoContainer() {
 
    
         fetch(`${APIDOMAIN}/bookings/code/${code}`)
-            .then(response => response.json())
+            .then(response => {
+                if(response.ok){
+                    return response.json() 
+                }else{
+                    throw new Error (response.status)
+                }
+            })
             .then(dbInfo => {
                 // console.log(dbInfo);
                 
@@ -31,7 +39,9 @@ function BookingInfoContainer() {
                 }
 
             })
-            .catch(error => console.log(error))        
+            .catch(error => {
+                history.push('/404')
+            })        
         
     }
         ,[code])

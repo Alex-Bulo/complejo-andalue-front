@@ -4,8 +4,10 @@ import './FeatureSectionContainer.css'
 import {APIDOMAIN} from '../../../helpers/helpers'
 import FeatureDescriptionList from '../FeatureDescriptionList/FeatureDescriptionList';
 import Spinning from '../../../loaders/Spinning';
+import { useHistory } from 'react-router-dom';
 
 function FeatureSectionContainer() {
+    const history = useHistory()
     
     const [features, setFeatures] = useState(null)    
     const [loading, setLoading] = useState(true)
@@ -13,7 +15,13 @@ function FeatureSectionContainer() {
     useEffect( ()=> {
    
         fetch(`${APIDOMAIN}/features/categories/2`)
-            .then(response => response.json())
+            .then(response => {
+                if(response.ok){
+                    return response.json() 
+                }else{
+                    throw new Error (response.status)
+                }
+            })
             .then(dbInfo => {
                 // console.log(dbInfo.meta);
                 
@@ -26,7 +34,9 @@ function FeatureSectionContainer() {
                 setLoading(false)
 
             })
-            .catch(error => console.log(error))        
+            .catch(error => {
+                history.push('/404')
+            })     
         
     }
         ,[])

@@ -1,4 +1,3 @@
-// AvailFormContainer will fetch info from DB (depending where it is), will create events to pass as props and render AvailForm
 
 import {useAvail} from '../../../context/AvailContext'
 import './AvailFormContainer.css'

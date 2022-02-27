@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { APIDOMAIN } from '../../../helpers/helpers';
 import Spinning from '../../../loaders/Spinning';
@@ -8,6 +9,7 @@ import Survey from '../Survey/Survey';
 
 
 function BookingFeedbackContainer() {
+    const history = useHistory()
     const {code} = useParams()
     const [loading, setLoading] = useState(true)
 
@@ -18,7 +20,7 @@ function BookingFeedbackContainer() {
  
     
     const sendSurvey = (answers) => {
-        // console.log('ANSWERS', answers);
+        
         setSurveyStatus({sending: true, success: false})
 
         fetch(`${APIDOMAIN}/questions/onBooking/${code}`,{
@@ -26,7 +28,13 @@ function BookingFeedbackContainer() {
             method:'POST',
             body:JSON.stringify({...answers,code:code})
         })
-        .then(response => response.json())
+        .then(response => {
+            if(response.ok){
+                return response.json() 
+            }else{
+                throw new Error (response.status)
+            }
+        })
         .then(dbInfo => {
             console.log(dbInfo);
             if(dbInfo.meta.status === 'error'){
@@ -41,13 +49,22 @@ function BookingFeedbackContainer() {
             }
             
         })
+        .catch(error => {
+            history.push('/404')
+        })   
     }
     
     useEffect(()=>{
 
 
         fetch(`${APIDOMAIN}/questions/onBooking/${code}`)
-            .then(response => response.json())
+            .then(response => {
+                if(response.ok){
+                    return response.json() 
+                }else{
+                    throw new Error (response.status)
+                }
+            })
             .then(dbInfo => {
                 setFeedbackInfo(dbInfo.data)
                 
@@ -66,7 +83,9 @@ function BookingFeedbackContainer() {
                 
 
             })
-            .catch(error => console.log(error)) 
+            .catch(error => {
+                history.push('/404')
+            })
     
 
     },[surveyStatus.success, code])

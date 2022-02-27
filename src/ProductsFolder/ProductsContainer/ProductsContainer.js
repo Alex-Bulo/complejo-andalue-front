@@ -10,9 +10,10 @@ import DropdownContainer from '../../GeneralFolder/ProductFolder/DropdownContain
 import BookingContainer from '../../GeneralFolder/BookingContainer/BookingContainer'    
 import { useParams } from 'react-router-dom'
 import Spinning from '../../loaders/Spinning'
+import { useHistory } from 'react-router-dom'
 
 function ProductsContainer() {
-
+    const history = useHistory()
     const {id} = useParams()
     
     const [products, setProducts] = useState(null)    
@@ -25,12 +26,20 @@ function ProductsContainer() {
     
     useEffect( ()=> {
         fetch(`${APIDOMAIN}/products`)
-            .then(response => response.json())
+            .then(response => {
+                if(response.ok){
+                    return response.json() 
+                }else{
+                    throw new Error (response.status)
+                }
+            })
             .then(dbInfo => {
                 // console.log(dbInfo.meta);
                 setProducts(dbInfo.data)
             })
-            .catch(error => console.log(error))        
+            .catch(error => {
+                history.push('/404')
+            })         
     },[])
     
     useEffect(()=>{

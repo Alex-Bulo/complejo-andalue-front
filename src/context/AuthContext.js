@@ -1,4 +1,5 @@
 import {createContext, useContext, useEffect, useState} from 'react'
+import { useHistory } from 'react-router-dom';
 import { APIDOMAIN } from '../helpers/helpers';
 
 
@@ -9,35 +10,40 @@ export const useAuth = () => useContext(AuthContext);
 
 
 export const AuthProvider = ( {children} ) => {
+    const history = useHistory()
     const [user, setUser] = useState(null)
 
     const logIn = (mail,code, action)=>{
-        try {
-            fetch(`${APIDOMAIN}/users/login`,{
-                headers:{'Content-Type':'application/json'},
-                method:'POST',
-                body:JSON.stringify({
-                    mail:mail,
-                    code:code
-                })
+        fetch(`${APIDOMAIN}/users/login`,{
+            headers:{'Content-Type':'application/json'},
+            method:'POST',
+            body:JSON.stringify({
+                mail:mail,
+                code:code
             })
-            .then(response => response.json())
-            .then(dbInfo => {
-                if(dbInfo.meta.status === 'error'){
-                    action.setFormErrors(dbInfo.errors)
+        })
+        .then(response => {
+            if(response.ok){
+                return response.json() 
+            }else{
+                throw new Error (response.status)
+            }
+        })
+        .then(dbInfo => {
+            if(dbInfo.meta.status === 'error'){
+                action.setFormErrors(dbInfo.errors)
+            
+                action.setLoading(false)
+                // return Promise {status:'success',id:dbInfo.data[0].id}
+            }else{
                 
-                    action.setLoading(false)
-                    // return Promise {status:'success',id:dbInfo.data[0].id}
-                }else{
-                    
-                    setUser(dbInfo.data[0])
-                    action.setLoading(false)
-                }
-            })
-                
-        } catch (error) {
-            return  {status:'error',info:error}
-        }
+                setUser(dbInfo.data[0])
+                action.setLoading(false)
+            }
+        })
+        .catch(error => {
+            history.push('/404')
+        })
     }
     
 

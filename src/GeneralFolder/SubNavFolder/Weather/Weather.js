@@ -1,1 +1,0 @@
-// Weather will show SanRafael's weather

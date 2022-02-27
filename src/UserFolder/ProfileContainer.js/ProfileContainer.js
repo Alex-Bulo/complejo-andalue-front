@@ -10,9 +10,11 @@ import ProductContainer from '../../ProductsFolder/ProductContainer/ProductConta
 import Extras from '../Extras/Extras';
 import './ProfileContainer.css'
 import { useAuth } from '../../context/AuthContext';
+import { useHistory } from 'react-router-dom';
 
 
 function ProfileContainer() {
+    const history = useHistory()
     const {user} = useAuth()
     const {code} = useParams()
     
@@ -60,12 +62,20 @@ function ProfileContainer() {
 
         
         fetch(`${APIDOMAIN}/products/${cabin[0].cabinId}`)
-            .then(response => response.json())
+            .then(response => {
+                if(response.ok){
+                    return response.json() 
+                }else{
+                    throw new Error (response.status)
+                }
+            })
             .then(dbInfo => {
                 // console.log(dbInfo);
                 setBookedCabin(dbInfo.data[0])
             })
-            .catch(error => console.log(error))        
+            .catch(error => {
+                history.push('/404')
+            })        
     },[code,user.bookings])        
 
         

@@ -1,5 +1,5 @@
 
-import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
 
 import './App.css';
@@ -35,7 +35,6 @@ function App() {
                     </Route> */}
 
                     <Route exact path='/' >
-                      <h4>HOLA MUNDO</h4>
                       <Home/>
                     </Route>
 

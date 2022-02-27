@@ -1,12 +1,15 @@
 // CarrrouselContainer will fetch images from DataBase and render Carrousel
 
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import {APIDOMAIN} from '../../../helpers/helpers'
 import Spinning from '../../../loaders/Spinning';
 import Carrousel from '../Carrousel/Carrousel';
 import './CarrouselContainer.css'
 
 function CarrouselContainer() {
+    const history = useHistory()
+    
     const [carrousel, setCarrousel] = useState(null)    
     const [loading, setLoading] = useState(true)
     
@@ -14,12 +17,20 @@ function CarrouselContainer() {
         
         
         fetch(`${APIDOMAIN}/images/categories/1`)
-            .then(response => response.json())
+        .then(response => {
+            if(response.ok){
+                return response.json() 
+            }else{
+                throw new Error (response.status)
+            }
+        })
             .then(dbInfo => {
                 setCarrousel(dbInfo.data.info)
                 setLoading(false)
             })
-            .catch(error => console.log(error))        
+            .catch(error => {
+                history.push('/404')
+            })       
 
 
     } ,[])

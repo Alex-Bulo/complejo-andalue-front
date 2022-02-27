@@ -1,10 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { isEmail, isEmpty } from '../../helpers/formValidations';
 import { APIDOMAIN } from '../../helpers/helpers';
 import './ContactForm.css'
 
 
 function ContactForm({setSending, setDelivered}) {
+    const history = useHistory()
+    
     const name = useRef(null)
     useEffect(()=>name.current.focus(),[])
     const [inputControl, setInputControl] = useState({
@@ -48,7 +51,13 @@ function ContactForm({setSending, setDelivered}) {
                     info: inputControl.info.replace(/\n/g, '<br>')
                 })
             })
-            .then(response => response.json())
+            .then(response => {
+                if(response.ok){
+                    return response.json() 
+                }else{
+                    throw new Error (response.status)
+                }
+            })
             .then(dbInfo => {
 
                 if(dbInfo.meta.status === 'error'){
@@ -66,6 +75,9 @@ function ContactForm({setSending, setDelivered}) {
                     })                
                 }
                 
+            })
+            .catch(error => {
+                history.push('/404')
             })
 
         }
