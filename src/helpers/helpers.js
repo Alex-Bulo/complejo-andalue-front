@@ -1,4 +1,4 @@
-export const APIDOMAIN = process.env.NODE_ENV === 'development' ? 'http://localhost:3001/api' : process.env.DOMAIN + 'api/api' 
+export const APIDOMAIN = process.env.NODE_ENV === 'development' ? 'http://localhost:3001/api' : 'https://andalue-kou8a.ondigitalocean.app/api/api' 
 // export const APIDOMAIN = 
 
 export const links=[
