@@ -7,18 +7,21 @@ import wppLogo from '../whatsapp-black-line.svg'
 import { useInfo } from '../../../context/InfoContext'
 
 function Footer() {
+    console.log(process.env)
     const {info} = useInfo()
-
+    const linkTop = ()=>{
+        window.scroll(0,0)
+    }
     return (  
         
         <footer className='Footer'>
             
             <section className='footer-webLinkContainer'>
-                <Link to='/' className='footer-webLink'> Inicio</Link>
-                <Link to='/casas' className='footer-webLink'> Cabañas</Link>
-                <Link to='/ubicacion' className='footer-webLink'> Ubicación</Link>
-                <Link to='/contacto' className='footer-webLink'> Contacto</Link>
-                <Link to='/login' className='footer-webLink'> Ingresar</Link>
+                <Link onClick={linkTop} to='/' className='footer-webLink'> Inicio</Link>
+                <Link onClick={linkTop} to='/casas' className='footer-webLink'> Cabañas</Link>
+                <Link onClick={linkTop} to='/ubicacion' className='footer-webLink'> Ubicación</Link>
+                <Link onClick={linkTop} to='/contacto' className='footer-webLink'> Contacto</Link>
+                <Link onClick={linkTop} to='/login' className='footer-webLink'> Ingresar</Link>
             </section>
             
             <section className='footer-redesContainer'>
@@ -33,7 +36,7 @@ function Footer() {
                 <p>
                     {info.placeFullname} <br/>
                     {info.direction} <br/>
-                    <Link to='/contacto'>{info.contactMail}</Link> <br/>  
+                    <Link onClick={linkTop} to='/contacto'>{info.contactMail}</Link> <br/>  
                     <a href={`https://api.whatsapp.com/send?phone=${info.contactCell}&text=Hola`}>+{info.contactCell}</a> <br/>  
                 </p>
             </section>
