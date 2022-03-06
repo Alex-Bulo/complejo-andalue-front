@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { InfoProvider } from './context/InfoContext';
+import ErrorPage from './GeneralFolder/404/ErrorPage';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,12 +16,12 @@ ReactDOM.render(
 
           <Switch>
             <Route exact path='/404'>
-              <h4>mi 404</h4>
+              <ErrorPage />
             </Route>
+
+            <App path='/'/>
+
           </Switch>
-
-          <App />
-
         </AuthProvider>
       </InfoProvider>
     </BrowserRouter>

@@ -68,8 +68,8 @@ function App() {
                         />                    
                     </Route>
                     
-                    <Route path='/proximamente' >
-                      <h4>proximamente</h4>
+                    <Route path='*' >
+                      <Redirect to='/404'/>
                     </Route>
                     
                     

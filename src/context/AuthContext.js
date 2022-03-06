@@ -23,7 +23,7 @@ export const AuthProvider = ( {children} ) => {
             })
         })
         .then(response => {
-            if(response.ok){
+            if(response.ok || response.status === 400){
                 return response.json() 
             }else{
                 throw new Error (response.status)

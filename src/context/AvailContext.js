@@ -74,7 +74,7 @@ export const AvailProvider = ( {children} ) => {
 
         fetch(`${APIDOMAIN}/avail/form?startDate=${userSearch.startDate}&endDate=${userSearch.endDate}&adults=${userSearch.adults}&kids=${userSearch.kids}&pets=${userSearch.pets}`)
                 .then(response => {
-                    if(response.ok){
+                    if(response.ok || response.status === 400){
                         return response.json() 
                     }else{
                         throw new Error (response.status)
@@ -88,6 +88,7 @@ export const AvailProvider = ( {children} ) => {
                         
 
                     }else{
+                        console.log(dbInfo.data);
                         cleanFormErrors()
                         setAvailInfo(dbInfo.data)
                     

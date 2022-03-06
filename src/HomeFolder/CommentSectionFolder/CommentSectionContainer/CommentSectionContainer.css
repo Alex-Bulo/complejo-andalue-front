@@ -3,7 +3,11 @@
     width: 100%;
     height: 470px;
 
+<<<<<<< HEAD
     background-image: url('/sanrafael.JPG');
+=======
+    background-image: url('https://andalue-kou8a.ondigitalocean.app/api/images/sanrafael.JPG');
+>>>>>>> 4dff238cacda2565d421d38161320da9a0966184
     background-position: center;
     background-repeat: no-repeat; 
     background-size: cover;
