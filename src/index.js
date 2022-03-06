@@ -19,7 +19,7 @@ ReactDOM.render(
               <ErrorPage />
             </Route>
 
-            <App />
+            <App path='/'/>
 
           </Switch>
         </AuthProvider>
